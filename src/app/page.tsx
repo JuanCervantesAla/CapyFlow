@@ -49,21 +49,20 @@ export default function Portfolio() {
 
       // Filtros más relajados
       const filteredRepos = data
-        .filter((repo: GitHubRepo) => !repo.fork) // Solo eliminamos los forks
+        .filter((repo: GitHubRepo) => !repo.fork)
         .map((repo: GitHubRepo) => ({
           ...repo,
-          description: repo.description || "No description provided", // Manejo de descripciones nulas
-          language: repo.language || "Unknown", // Manejo de lenguajes nulos
-          homepage: repo.homepage || "", // Manejo de homepages nulas
+          description: repo.description || "No description provided",
+          language: repo.language || "Unknown",
+          homepage: repo.homepage || "",
         }))
-        .slice(0, 6) // Solo tomamos los primeros 6 por si acaso
+        .slice(0, 6)
 
       setRepos(filteredRepos)
       setError(null)
     } catch (error) {
       console.error("Error fetching GitHub repos:", error)
       setError("Failed to load repositories. Please try again later.")
-      // Datos de ejemplo mínimos
       setRepos([
         {
           id: 1,
@@ -86,18 +85,15 @@ export default function Portfolio() {
 
   const socialLinks = [
     { name: "GitHub", icon: Github, url: "https://github.com/JuanCervantesAla" },
-    { name: "LinkedIn", icon: Linkedin, url: "www.linkedin.com/in/juan-cervantes-9025752b8" },
+    { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/in/juan-cervantes-9025752b8" },
     { name: "Twitter", icon: Twitter, url: "https://twitter.com/tu-usuario" },
     { name: "Email", icon: Mail, url: "mailto:juajocervantes16@gmail.com" },
   ]
-
-  const colors = ["#1e5a5a", "#f97316", "#0891b2", "#475569", "#f59e0b"]
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 relative">
       <AnimatedBackground />
       <div className="relative z-10">
-        {/* Header */}
         <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -129,14 +125,13 @@ export default function Portfolio() {
           </div>
         </header>
 
-        {/* Hero Section */}
         <section id="about" className="container mx-auto px-4 py-16 md:py-24">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-4">JUAN CERVANTES</h1>
               <h2 className="text-xl md:text-2xl text-slate-600 mb-6">SOFTWARE ENGINEER AND DEVELOPER</h2>
               <p className="text-lg text-slate-600 mb-8 max-w-2xl">
-                Full stack developer ispired at creating and innovating ideas. Specialized in Java, Python, Go, React and modern technologies. CapyFlow founder, developing ideas to improve productivity.
+                Full stack developer inspired at creating and innovating ideas. Specialized in Java, Python, Go, React and modern technologies. CapyFlow founder, developing ideas to improve productivity.
               </p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 <Button size="lg" asChild>
@@ -156,7 +151,6 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Projects Section */}
         <section id="projects" className="container mx-auto px-4 py-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">My Projects</h2>
@@ -242,12 +236,11 @@ export default function Portfolio() {
           )}
         </section>
 
-        {/* Contact Section */}
         <section id="contact" className="bg-slate-900 text-white py-16">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's work together</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Let&apos;s work together</h2>
             <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-              I'm always open to work on big ideas and new impactful projects. Don't hesitate to contact me!
+              I&apos;m always open to work on big ideas and new impactful projects. Don&apos;t hesitate to contact me!
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 mb-8">
@@ -269,7 +262,6 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Footer */}
         <footer className="bg-slate-950 text-slate-400 py-8">
           <div className="container mx-auto px-4 text-center">
             <div className="flex items-center justify-center gap-3 mb-4">
